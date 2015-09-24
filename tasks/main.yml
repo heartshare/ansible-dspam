@@ -1,0 +1,11 @@
+---
+
+- name: init dspam
+  include: init.yml
+  when: role_dspam_register_init is not defined
+
+- name: init dspam register
+  command: /bin/true
+  register: role_dspam_register_init
+  when: role_dspam_register_init is not defined
+  changed_when: False

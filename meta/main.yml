@@ -1,0 +1,16 @@
+---
+
+dependencies:
+
+  - role: debops.secret
+
+  - role: debops.rsyslog
+    rsyslog_pools: [ '{{ rsyslog_pool_dspam }}' ]
+    rsyslog_pool_dspam:
+        enabled: True
+        name: '09-dspam'
+        options: |
+            $template DynFileEximPanic,"/var/log/%HOSTNAME%/%programname%/%$YEAR%.%$MONTH%.%$DAY%.log"
+            if $programname == "dspam" then		?DynFileEximPanic
+            & stop
+

@@ -1,0 +1,17 @@
+---
+
+
+# List of packages to install
+role_dspam_packages:
+  - libdspam7-drv-{{role_dspam_db_type}}
+  - dspam
+
+# Default length of generated passwords
+password_length: '20'
+
+# Default dspam db password
+role_dspam_db_pass: "{{ lookup('password', secret + '/credentials/' + ansible_fqdn + '/mysql/dspam/password length=' + password_length) }}"
+role_dspam_db_user: 'dspam'
+role_dspam_db_name: 'dspam'
+role_dspam_db_type: 'mysql'
+role_dspam_db_server: 'unix(/run/mysqld/mysqld.sock)'

@@ -1,0 +1,41 @@
+---
+
+- name: configure dbconfig
+  template:
+    src: 'etc/dbconfig-common/libdspam7-drv-mysql.conf.j2'
+    dest: '/etc/dbconfig-common/libdspam7-drv-{{role_dspam_db_type}}.conf'
+    owner: 'root'
+    group: 'root'
+    mode:   '0400'
+    backup: 'yes'
+
+- name: Ensure dspam is installed
+  apt:
+    name: '{{ item }}'
+    state: 'present'
+    install_recommends: False
+  with_items: role_dspam_packages
+  when: (role_dspam_packages is defined and role_dspam_packages)
+
+- name: Create database for dspam
+  mysql_db:
+    name:   '{{ role_dspam_db_name | default("dspam") }}'
+    state:  'present'
+  register: role_dspam_db
+
+- name: Create db schema dspam
+  mysql_db:
+    name:     '{{ role_dspam_db_name | default("dspam") }}'
+    state:    'import'
+    target:   '/usr/share/dbconfig-common/data/libdspam7-drv-mysql/install/mysql'
+  when: role_dspam_db is defined and role_dspam_db.changed
+
+- name: Create dspam control user
+  mysql_user:
+    name: '{{ role_dspam_db_user | default("dspam") }}'
+    state: 'present'
+    password: '{{ role_dspam_db_pass }}'
+    priv: '{{ role_dspam_db_name | default("dspam") }}.*:ALL'
+
+
+## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
