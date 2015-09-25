@@ -38,4 +38,16 @@
     priv: '{{ role_dspam_db_name | default("dspam") }}.*:ALL'
 
 
+- name: configure dspam
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: 'root'
+    group: 'dspam'
+    mode:   '0444'
+    backup: 'yes'
+  with_items:
+    - { src: 'etc/dspam/dspam.conf.j2', dest: '/etc/dspam/dspam.conf' }
+    - { src: 'var/spool/dspam/group.j2', dest: '/var/spool/dspam/group' }
+
 ## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2

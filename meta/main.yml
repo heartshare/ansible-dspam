@@ -5,7 +5,8 @@ dependencies:
   - role: debops.secret
 
   - role: debops.rsyslog
-    rsyslog_pools: [ '{{ rsyslog_pool_dspam }}' ]
+    rsyslog_pools:
+      - '{{ rsyslog_pool_dspam }}'
     rsyslog_pool_dspam:
         enabled: True
         name: '09-dspam'
@@ -14,3 +15,4 @@ dependencies:
             if $programname == "dspam" then		?DynFileEximPanic
             & stop
 
+## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2

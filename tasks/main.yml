@@ -9,3 +9,9 @@
   register: role_dspam_register_init
   when: role_dspam_register_init is not defined
   changed_when: False
+
+- name: pools dspam
+  include: pools.yml
+  when: role_dspam_manage_pools is defined and role_dspam_manage_pools
+
+## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2

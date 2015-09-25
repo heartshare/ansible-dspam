@@ -1,0 +1,23 @@
+---
+
+- name: Setup pool configuration
+  template:
+    src: 'etc/dspam/pool.conf.j2'
+    dest: '/etc/dspam/dspam.d/{{ item.name }}.conf'
+    owner: '{{ item.owner | default("root") }}'
+    group: '{{ item.group | default("dspam") }}'
+    mode: '{{ item.mode | default("0444") }}'
+    backup: '{{ item.backup | default("no") }}'
+  with_items: [ '{{ role_dspam_pools }}' ]
+  when: ((item.name is defined and item.name) and
+        (item.enabled is defined and item.enabled == True))
+
+- name: Disable rsyslog pools
+  file:
+    path: '/etc/dspam/dspam.d/{{ item.name }}.conf'
+    state: 'absent'
+  with_items: [ '{{ role_dspam_pools }}' ]
+  when: ((item.name is defined and item.name) and
+        (item.enabled is defined and item.enabled == False))
+
+## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
