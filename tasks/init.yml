@@ -1,5 +1,16 @@
 ---
 
+- name: Create directories
+  file:
+    path:   '{{ item.path }}'
+    state:  '{{ item.state  | default("directory") }}'
+    owner:  '{{ item.owner  | default("root") }}'
+    group:  '{{ item.group  | default("root") }}'
+    mode:   '{{ item.mode   | default("0755") }}'
+  with_items:
+   - { path: '/etc/dbconfig-common' }
+
+
 - name: configure dbconfig
   template:
     src: 'etc/dbconfig-common/libdspam7-drv-mysql.conf.j2'
