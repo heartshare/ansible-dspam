@@ -17,7 +17,7 @@ dependencies:
 
 galaxy_info:
   author: 'Aleksej Gavrilov'
-    description: 'Configure dspam packages'
+  description: 'Configure dspam packages'
   license: 'MIT'
   min_ansible_version: '1.9.0'
   platforms:
