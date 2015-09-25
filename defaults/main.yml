@@ -5,6 +5,7 @@
 role_dspam_packages:
   - libdspam7-drv-{{role_dspam_db_type}}
   - dspam
+  - python-mysqldb
 
 # Default length of generated passwords
 password_length: '20'
