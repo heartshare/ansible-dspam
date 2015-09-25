@@ -131,4 +131,4 @@ role_dspam_pools_default:
     StripRcptDomain off
     GroupConfig /var/spool/dspam/group
 
-## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
+## vim: ft=yaml:foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
