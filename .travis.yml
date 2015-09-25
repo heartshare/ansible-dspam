@@ -12,5 +12,5 @@ install: True
 
 script:
   - 'git clone --depth 1 https://github.com/nickjj/rolespec'
-  - 'cd rolespec ; bin/rolespec -r https://github.com/le9i0nx/test-suite/tree/dspam'
+  - 'cd rolespec ; bin/rolespec -r https://github.com/le9i0nx/test-suite'
 
