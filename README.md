@@ -11,6 +11,10 @@ This role requires at least Ansible `v1.7.0`. To install it, run:
 
 ### Documentation
 
+### Role dependencies
+
+    - `debops.secret`
+    - `debops.rsyslog`
 
 ### Authors and license
 
