@@ -27,7 +27,8 @@ galaxy_info:
   - name: Debian
     versions:
     - jessie
-                                                                                          categories:
+
+categories:
   - system
   - packaging
 
