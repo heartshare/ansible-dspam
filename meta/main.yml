@@ -15,4 +15,23 @@ dependencies:
             if $programname == "dspam" then		?DynFileEximPanic
             & stop
 
+galaxy_info:
+  author: 'Aleksej Gavrilov'
+    description: 'Configure dspam packages'
+  license: 'MIT'
+  min_ansible_version: '1.9.0'
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  - name: Debian
+    versions:
+    - jessie
+                                                                                          categories:
+  - system
+  - packaging
+
+
+
+
 ## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
