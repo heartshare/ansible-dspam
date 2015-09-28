@@ -27,12 +27,8 @@ galaxy_info:
   - name: Debian
     versions:
     - jessie
-
-categories:
-  - system
-  - packaging
-
-
-
+  categories:
+    - system
+    - packaging
 
 ## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
