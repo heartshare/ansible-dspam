@@ -6,7 +6,7 @@ dependencies:
 
   - role: debops.rsyslog
     rsyslog_pools:
-      - '{{ rsyslog_pool_dspam }}'
+      - "{{ rsyslog_pool_dspam }}"
     rsyslog_pool_dspam:
         enabled: True
         name: '09-dspam'

@@ -1,5 +1,13 @@
 ---
+# Default variables
+# =================
 
+# .. contents:: Sections
+#    :local:
+#
+# -----------------------------
+#   General dspam node options
+# -----------------------------
 
 # List of packages to install
 role_dspam_packages:
