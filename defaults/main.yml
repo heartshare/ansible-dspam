@@ -77,13 +77,13 @@ role_dspam_pools_default:
     Preference "statisticalSedation=5"	# { 0 - 10 } -> default:0
     Preference "enableBNR=on"		# { on | off } -> default:off
     Preference "enableWhitelist=on"		# { on | off } -> default:on
-    Preference "signatureLocation=message"	# { message | headers } -> default:message
+    Preference "signatureLocation=headers"	# { message | headers } -> default:message
     Preference "tagSpam=off"		# { on | off }
     Preference "tagNonspam=off"		# { on | off }
     Preference "showFactors=off"		# { on | off } -> default:off
     Preference "optIn=off"			# { on | off }
     Preference "optOut=off"			# { on | off }
-    Preference "whitelistThreshold=10"	# { Integer } -> default:10
+    Preference "whitelistThreshold=50"	# { Integer } -> default:10
     Preference "makeCorpus=off"		# { on | off } -> default:off
     Preference "storeFragments=off"		# { on | off } -> default:off
     Preference "localStore="		# { on | off } -> default:username
@@ -105,18 +105,56 @@ role_dspam_pools_default:
     AllowOverride optIn optOut
     AllowOverride whitelistThreshold
 
-    IgnoreHeader X-Spam-Status
-    IgnoreHeader X-Spam-Score
-    IgnoreHeader X-Spam-Scanned
-    IgnoreHeader X-Virus-Scanner-Result
-    IgnoreHeader Date
     IgnoreHeader Envelope-to
     IgnoreHeader Delivery-date
     IgnoreHeader Received
     IgnoreHeader User-Agent
+
+    IgnoreHeader X-Amavis-Alert
+    IgnoreHeader X-Amavis-Modified
+    IgnoreHeader X-Amavis-OS-Fingerprint
+    IgnoreHeader X-Envelope-From
+    IgnoreHeader X-Envelope-To
+    IgnoreHeader X-Quarantine-ID
+    IgnoreHeader X-Scanned
+    IgnoreHeader X-Spam-Checker-Version
+    IgnoreHeader X-Spam-Flag
+    IgnoreHeader X-Spam-Level
+    IgnoreHeader X-Spam-Report
+    IgnoreHeader X-Spam-Scanned
+    IgnoreHeader X-Spam-Score
+    IgnoreHeader X-Spam-Status
+    IgnoreHeader X-Spam-Tests
+    IgnoreHeader X-Virus-Scanned
+    IgnoreHeader X-Virus-Scanner-Result
+
+    IgnoreHeader X-Mailer
     IgnoreHeader Content-Type
+    IgnoreHeader Message-ID
+    IgnoreHeader X-MimeOLE
     IgnoreHeader Content-Transfer-Encoding
+
+    IgnoreHeader Date
+    IgnoreHeader Delivered-To
+    IgnoreHeader Received
     IgnoreHeader To
+    IgnoreHeader Cc
+
+    IgnoreHeader X-DSPAM-Result
+    IgnoreHeader X-DSPAM-Processed
+    IgnoreHeader X-DSPAM-Confidence
+    IgnoreHeader X-DSPAM-Probability
+    IgnoreHeader X-DSPAM-Signature
+
+    IgnoreHeader X-BeenThere
+    IgnoreHeader List-Id
+    IgnoreHeader List-Unsubscribe
+    IgnoreHeader List-Archive
+    IgnoreHeader List-Post
+    IgnoreHeader List-Help
+    IgnoreHeader List-Subscribe
+    IgnoreHeader Sender
+    IgnoreHeader Errors-To
 
     Notifications   off
 
