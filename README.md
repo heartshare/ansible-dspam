@@ -20,7 +20,7 @@ This role requires at least Ansible `v1.9.0`. To install it, run:
 `dspam` role was written by:
 - Aleksej Gavrilov | [e-mail](mailto:le9i0nx@gmail.com) | [GitHub](https://github.com/le9i0nx)
 
-License: [MIT](https://github.com/le9i0nx/ansible-dspam/blob/master/LICENSE)
+License: [GPLv3](https://github.com/le9i0nx/ansible-dspam/blob/master/LICENSE)
 
 ***
 
